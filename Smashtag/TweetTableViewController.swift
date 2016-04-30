@@ -14,7 +14,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate
 
     var tweets = [[Tweet]]()
 
-    var searchText: String? = "#stanford" {
+    var searchText: String? = "#Stanford" {
         didSet {
             lastSuccessfulRequest = nil
             searchTextField?.text = searchText
@@ -109,7 +109,8 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.CellReuseIdentifier, forIndexPath: indexPath) as! TweetTableViewCell
-
+        
+        cell.labelText = searchText!;
         cell.tweet = tweets[indexPath.section][indexPath.row]
 
         return cell

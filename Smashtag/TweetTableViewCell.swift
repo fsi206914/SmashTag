@@ -10,11 +10,18 @@ import UIKit
 
 class TweetTableViewCell: UITableViewCell
 {
+    var labelText: String? = nil;
     var tweet: Tweet? {
         didSet {
             updateUI()
         }
     }
+    
+//    init(text: String){
+////        self.init(coder:coder);
+//        labelText = text;
+//    }
+    
     
     @IBOutlet weak var tweetProfileImageView: UIImageView!
     @IBOutlet weak var tweetScreenNameLabel: UILabel!
@@ -36,9 +43,18 @@ class TweetTableViewCell: UITableViewCell
                 for _ in tweet.media {
                     tweetTextLabel.text! += " 📷"
                 }
+                if labelText != nil{
+                    var attributedString = NSMutableAttributedString(string:tweet.text);
+                    print("labelText = \(labelText)")
+                    let range = (tweet.text.lowercaseString as NSString)
+.rangeOfString(labelText!.lowercaseString)
+                    print("range = \(range)")
+                    attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.redColor() , range: range)
+                    tweetTextLabel?.attributedText = attributedString;
+                }
             }
             
-            tweetScreenNameLabel?.text = "\(tweet.user)" // tweet.user.description
+            tweetScreenNameLabel?.text = "\(tweet.user)" // tweet.user.descri   ption
             
             if let profileImageURL = tweet.user.profileImageURL {
                 if let imageData = NSData(contentsOfURL: profileImageURL) { // blocks main thread!
