@@ -75,7 +75,7 @@
                                     <outlet property="tweetProfileImageView" destination="cnE-1d-1G3" id="vrL-uO-slN"/>
                                     <outlet property="tweetScreenNameLabel" destination="Jj6-GE-mmF" id="WOh-8Z-ANq"/>
                                     <outlet property="tweetTextLabel" destination="gcg-Q8-sZh" id="rQt-Tb-S0H"/>
-                                    <segue destination="euy-Am-sxV" kind="show" id="3cW-94-Nhu"/>
+                                    <segue destination="euy-Am-sxV" kind="show" identifier="abc" id="3cW-94-Nhu"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -108,7 +108,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="qID-EG-Bd3">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="qID-EG-Bd3" customClass="TweetDetailCell" customModule="Smashtag" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qID-EG-Bd3" id="f51-iM-VPH">

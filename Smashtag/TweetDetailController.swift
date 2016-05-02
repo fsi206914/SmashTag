@@ -9,6 +9,9 @@
 import UIKit
 
 class TweetDetailController: UITableViewController {
+    
+     
+    
     override func viewDidLoad() {
         self.title = "TweetDetail";
         super.viewDidLoad()

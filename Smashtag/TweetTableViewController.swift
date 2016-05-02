@@ -117,6 +117,17 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate
         return cell
     }
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let tdc = segue.destinationViewController as? TweetDetailController {
+            if let identifier = segue.identifier{
+                switch identifier {
+                case "abc": print("succeed")
+                default: print("error");
+                }
+            }
+        }
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
