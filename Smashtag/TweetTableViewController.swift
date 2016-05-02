@@ -28,6 +28,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Search";
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
         refresh()

@@ -44,11 +44,9 @@ class TweetTableViewCell: UITableViewCell
                     tweetTextLabel.text! += " 📷"
                 }
                 if labelText != nil{
-                    var attributedString = NSMutableAttributedString(string:tweet.text);
-                    print("labelText = \(labelText)")
+                    let attributedString = NSMutableAttributedString(string:tweet.text);
                     let range = (tweet.text.lowercaseString as NSString)
 .rangeOfString(labelText!.lowercaseString)
-                    print("range = \(range)")
                     attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.redColor() , range: range)
                     tweetTextLabel?.attributedText = attributedString;
                 }
@@ -57,8 +55,12 @@ class TweetTableViewCell: UITableViewCell
             tweetScreenNameLabel?.text = "\(tweet.user)" // tweet.user.descri   ption
             
             if let profileImageURL = tweet.user.profileImageURL {
-                if let imageData = NSData(contentsOfURL: profileImageURL) { // blocks main thread!
-                    tweetProfileImageView?.image = UIImage(data: imageData)
+                
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+                    if let imageData = NSData(contentsOfURL: profileImageURL){
+                        dispatch_async(dispatch_get_main_queue(), {
+                            self.tweetProfileImageView?.image = UIImage(data: imageData)                        });
+                    }
                 }
             }
             
