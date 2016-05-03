@@ -121,7 +121,9 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate
         if let tdc = segue.destinationViewController as? TweetDetailController {
             if let identifier = segue.identifier{
                 switch identifier {
-                case "abc": print("succeed")
+                case "abc":
+                    tdc.cellDetail = [["We", "❤", "Swift"],["qwe", "wer", "ert"]]
+                    print("succeed")
                 default: print("error");
                 }
             }

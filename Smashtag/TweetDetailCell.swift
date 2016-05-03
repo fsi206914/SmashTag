@@ -9,5 +9,15 @@
 import UIKit
 
 class TweetDetailCell: UITableViewCell {
+    var labelText: String?{
+        didSet{
+            updateUI();
+        }
+    }
 
+    @IBOutlet weak var testLabel: UILabel!
+    
+    func updateUI(){
+        testLabel?.text = "asdf";
+    }
 }

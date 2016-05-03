@@ -103,16 +103,87 @@
         <scene sceneID="5ic-7X-hPz">
             <objects>
                 <tableViewController id="euy-Am-sxV" customClass="TweetDetailController" customModule="Smashtag" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="XhA-R1-zQt">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="105" sectionHeaderHeight="28" sectionFooterHeight="28" id="XhA-R1-zQt">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="qID-EG-Bd3" customClass="TweetDetailCell" customModule="Smashtag" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageID" rowHeight="250" id="qID-EG-Bd3" customClass="ImageCell" customModule="Smashtag" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="250"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qID-EG-Bd3" id="f51-iM-VPH">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="249.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jeq-Gv-yo2">
+                                            <rect key="frame" x="176" y="67" width="249" height="116"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="181" id="nPr-i0-UrE"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="jeq-Gv-yo2" firstAttribute="centerY" secondItem="f51-iM-VPH" secondAttribute="centerY" id="9ME-d6-R0r"/>
+                                        <constraint firstItem="jeq-Gv-yo2" firstAttribute="centerX" secondItem="f51-iM-VPH" secondAttribute="centerX" id="bhm-WY-h8h"/>
+                                        <constraint firstItem="jeq-Gv-yo2" firstAttribute="top" secondItem="f51-iM-VPH" secondAttribute="topMargin" constant="5" id="c6q-xM-DdZ"/>
+                                        <constraint firstItem="jeq-Gv-yo2" firstAttribute="centerY" secondItem="f51-iM-VPH" secondAttribute="centerY" id="f72-AM-Onz"/>
+                                        <constraint firstItem="jeq-Gv-yo2" firstAttribute="leading" secondItem="f51-iM-VPH" secondAttribute="leadingMargin" constant="5" id="gw8-Q7-rUY"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="jeq-Gv-yo2" secondAttribute="trailing" constant="5" id="mDE-sY-Tv9"/>
+                                        <constraint firstItem="jeq-Gv-yo2" firstAttribute="centerX" secondItem="f51-iM-VPH" secondAttribute="centerX" id="pbN-cr-GHk"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="9ME-d6-R0r"/>
+                                            <exclude reference="bhm-WY-h8h"/>
+                                            <exclude reference="gw8-Q7-rUY"/>
+                                            <exclude reference="mDE-sY-Tv9"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="pictureImageView" destination="jeq-Gv-yo2" id="1U0-gY-7mh"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="URLID" rowHeight="84" id="amY-qS-ftf" customClass="URLCell" customModule="Smashtag" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="342" width="600" height="84"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="amY-qS-ftf" id="t7w-Kx-N95">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="83.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="11F-Rb-Xj2">
+                                            <rect key="frame" x="8" y="8" width="584" height="46"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="584" id="9sl-vh-maT"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="topMargin" secondItem="11F-Rb-Xj2" secondAttribute="top" id="7GA-WO-g0R"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="11F-Rb-Xj2" secondAttribute="bottom" constant="42.5" id="EUX-5F-ARJ"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="11F-Rb-Xj2" secondAttribute="leading" id="IKX-tK-iVM"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="testLabel" destination="11F-Rb-Xj2" id="drl-92-e6A"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HashtagID" rowHeight="97" id="M9h-X6-aKi" customClass="HashtagCell" customModule="Smashtag" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="426" width="600" height="97"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M9h-X6-aKi" id="jB8-IU-8hf">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="96.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserID" rowHeight="115" id="m00-Yh-UMH" customClass="UserCell" customModule="Smashtag" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="523" width="600" height="115"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m00-Yh-UMH" id="zep-Zq-veG">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="114.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -128,7 +199,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eue-yQ-DEz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="89" y="238"/>
+            <point key="canvasLocation" x="284" y="245"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xdK-NY-9BI">
