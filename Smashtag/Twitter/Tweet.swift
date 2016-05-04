@@ -114,11 +114,9 @@ public class Tweet: CustomStringConvertible
         
         if let mediaEntities = data?.valueForKeyPath(TwitterKey.Media) as? NSArray {
             for eachMediaData in mediaEntities {
-                
                 if let mediaItem = MediaItem(data: eachMediaData as? NSDictionary) {
                     media.append(mediaItem)
                 }
-                
             }
         }
         

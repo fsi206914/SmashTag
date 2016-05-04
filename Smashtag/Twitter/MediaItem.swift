@@ -32,16 +32,13 @@ public struct MediaItem: CustomStringConvertible {
         
         self.url = url
         guard h.doubleValue != 0 else { print("not vaild, divBy0"); return nil }
-        
         aspectRatio = w.doubleValue / h.doubleValue
-        
-        
     }
     
     struct TwitterKey {
         static let MediaURL = "media_url_https"
-        static let Width    = "size.small.w"
-        static let Hight    = "size.small.h"
+        static let Width    = "sizes.small.w"
+        static let Hight    = "sizes.small.h"
     }
     
     

@@ -11,31 +11,28 @@ import UIKit
 class ImageCell: UITableViewCell {
 
     
-    var changeText: String?{
-        didSet{
-            updateUI();
+    var tweet: Tweet? {
+        didSet {
+            updateUI()
         }
     }
     
     @IBOutlet weak var pictureImageView: UIImageView!
-    
     func updateUI(){
-        
-        
-        let url: NSString = "https://pbs.twimg.com/media/ChX1muwWUAAM1dY.jpg"
-        var urlStr : NSString = url.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
 
-        let pictureURL = NSURL(string: urlStr as String)!
+        //        let url: NSString = "https://pbs.twimg.com/media/ChlUhrlUgAEO31L.jpg"
+        //        var urlStr : NSString = url.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+        //        let pictureURL = NSURL(string: urlStr as String)!
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-            print("access dispatch async. url = \(pictureURL)")
-            if let imageData = NSData(contentsOfURL: pictureURL){
-                print("access NSDATA.")
-                dispatch_async(dispatch_get_main_queue(), {
-                    print("access pictureImageView.")
-                    self.pictureImageView?.image = UIImage(data: imageData)                        });
+        if let pictureURL = tweet?.media[0].url {
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+                if let imageData = NSData(contentsOfURL: pictureURL){
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.pictureImageView?.image = UIImage(data: imageData)                        });
+                }
             }
         }
     }
     
 }
+

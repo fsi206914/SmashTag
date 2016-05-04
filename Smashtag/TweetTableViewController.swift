@@ -14,7 +14,7 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate
 
     var tweets = [[Tweet]]()
 
-    var searchText: String? = "#Stanford" {
+    var searchText: String? = "#picture" {
         didSet {
             lastSuccessfulRequest = nil
             searchTextField?.text = searchText
@@ -122,8 +122,13 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate
             if let identifier = segue.identifier{
                 switch identifier {
                 case "abc":
-                    tdc.cellDetail = [["We", "❤", "Swift"],["qwe", "wer", "ert"]]
-                    print("succeed")
+                    let cell = sender as! TweetTableViewCell;
+                    if let indexPath = tableView.indexPathForCell(cell){
+
+                        tdc.tweet = tweets[indexPath.section][indexPath.row];
+                        print("tweet = \(tdc.tweet)")
+                        print("tweet media = \(tdc.tweet?.media)")
+                    }
                 default: print("error");
                 }
             }

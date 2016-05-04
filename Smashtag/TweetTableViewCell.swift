@@ -57,7 +57,6 @@ class TweetTableViewCell: UITableViewCell
             if let profileImageURL = tweet.user.profileImageURL {
                 
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-                    print("profileURL = \(profileImageURL)")
                     if let imageData = NSData(contentsOfURL: profileImageURL){
                         dispatch_async(dispatch_get_main_queue(), {
                             self.tweetProfileImageView?.image = UIImage(data: imageData)                        });
