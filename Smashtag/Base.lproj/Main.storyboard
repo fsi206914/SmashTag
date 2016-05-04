@@ -151,25 +151,29 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="83.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="11F-Rb-Xj2">
-                                            <rect key="frame" x="8" y="8" width="584" height="46"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="584" id="9sl-vh-maT"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="11F-Rb-Xj2">
+                                            <rect key="frame" x="8" y="8" width="584" height="25.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="topMargin" secondItem="11F-Rb-Xj2" secondAttribute="top" id="7GA-WO-g0R"/>
+                                        <constraint firstItem="11F-Rb-Xj2" firstAttribute="top" secondItem="t7w-Kx-N95" secondAttribute="topMargin" id="6Sj-hd-bBw"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="11F-Rb-Xj2" secondAttribute="bottom" constant="42.5" id="6ux-da-bLe"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="11F-Rb-Xj2" secondAttribute="bottom" constant="42.5" id="EUX-5F-ARJ"/>
-                                        <constraint firstAttribute="leadingMargin" secondItem="11F-Rb-Xj2" secondAttribute="leading" id="IKX-tK-iVM"/>
+                                        <constraint firstItem="11F-Rb-Xj2" firstAttribute="trailing" secondItem="t7w-Kx-N95" secondAttribute="trailingMargin" id="FlD-nl-noI"/>
+                                        <constraint firstItem="11F-Rb-Xj2" firstAttribute="leading" secondItem="t7w-Kx-N95" secondAttribute="leadingMargin" id="vFT-zG-UmY"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="6ux-da-bLe"/>
+                                            <exclude reference="EUX-5F-ARJ"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="contentLabel" destination="11F-Rb-Xj2" id="xCD-Gm-6O3"/>
-                                    <outlet property="testLabel" destination="11F-Rb-Xj2" id="drl-92-e6A"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HashtagID" rowHeight="97" id="M9h-X6-aKi" customClass="HashtagCell" customModule="Smashtag" customModuleProvider="target">

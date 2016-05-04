@@ -17,11 +17,16 @@ class URLCell: UITableViewCell {
     func updateUI(indexPath: NSIndexPath, sectionIDNameMap: [Int: String]){
         if let sectionMap = sectionIDNameMap[indexPath.section]{
             switch sectionMap {
-            case "urls": contentLabel.text = "\(tweet?.urls[indexPath.row])"
-            case "hashtag": contentLabel.text = "\(tweet?.hashtags[indexPath.row])"
-            case "userMentions": contentLabel.text = "\(tweet?.hashtags[indexPath.row])"
+            case "urls": contentLabel.text = (tweet?.urls[indexPath.row].keyword)!
+            case "hashtag": contentLabel.text = (tweet?.hashtags[indexPath.row].keyword)!
+            case "userMentions": contentLabel.text = (tweet?.hashtags[indexPath.row].keyword)!
             default: contentLabel.text = "error"
             }
         }
+    }
+    
+    func removeOptional(str: String) -> String{
+        let newString = str.stringByReplacingOccurrencesOfString("Optional\"", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil).stringByReplacingOccurrencesOfString("\")", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+        return newString;
     }
 }

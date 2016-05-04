@@ -126,8 +126,8 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate
                     if let indexPath = tableView.indexPathForCell(cell){
 
                         tdc.tweet = tweets[indexPath.section][indexPath.row];
-                        print("tweet = \(tdc.tweet)")
-                        print("tweet media = \(tdc.tweet?.media)")
+//                        print("tweet = \(tdc.tweet)")
+//                        print("tweet media = \(tdc.tweet?.media)")
                     }
                 default: print("error");
                 }

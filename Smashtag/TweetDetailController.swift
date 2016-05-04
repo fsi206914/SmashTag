@@ -14,24 +14,27 @@ class TweetDetailController: UITableViewController {
     var labelText: String? = nil;
     var tweet: Tweet? = nil{
         didSet{
+            sectionIDNameMap = [Int: String]()
             var index = 0;
-            if let _ = tweet?.media{
+            if let mediaArr = tweet?.media{
+                if mediaArr.count > 0{
                 sectionIDNameMap[index] = "image";
                 index += 1;
+                }
             }
-            if let _ = tweet?.urls{
+            if tweet?.urls.count>0{
                 sectionIDNameMap[index] = "urls";
                 index += 1;
             }
-            if let _ = tweet?.hashtags{
+            if tweet?.hashtags.count > 0{
                 sectionIDNameMap[index] = "hashtag";
                 index += 1;
             }
-            if let _ = tweet?.userMentions{
+            if tweet?.userMentions.count > 0{
                 sectionIDNameMap[index] = "userMentions";
                 index += 1;
             }
-            print(sectionIDNameMap.count)
+            print("sectionIDNameMap = \(sectionIDNameMap)")
         }
     }
     
@@ -74,26 +77,29 @@ class TweetDetailController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         var cell: UITableViewCell? = nil
-        print(indexPath);
-        if(indexPath.row == 0 && indexPath.section == 0) {
-            cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.ImageID, forIndexPath: indexPath) as! ImageCell
-            if let imageCell = cell as? ImageCell{
-                imageCell.tweet = tweet;
+        if let sectionMap = sectionIDNameMap[indexPath.section]{
+            if(sectionMap == "image") {
+                cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.ImageID, forIndexPath: indexPath) as! ImageCell
+                if let imageCell = cell as? ImageCell{
+                    imageCell.tweet = tweet;
+                }
             }
-        }
-        else{
-            cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.URLID, forIndexPath: indexPath) as! URLCell
-            if let urlCell = cell as? URLCell{
-                urlCell.tweet = tweet;
-                urlCell.updateUI(indexPath, sectionIDNameMap: sectionIDNameMap);
+            else{
+                cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.URLID, forIndexPath: indexPath) as! URLCell
+                if let urlCell = cell as? URLCell{
+                    urlCell.tweet = tweet;
+                    urlCell.updateUI(indexPath, sectionIDNameMap: sectionIDNameMap);
+                }
             }
         }
         return cell!;
     }
 
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat{
-        if(indexPath.row == 0 && indexPath.section == 0) {
-            return CGFloat(330.0);
+        if let sectionMap = sectionIDNameMap[indexPath.section]{
+            if(sectionMap == "image") {
+                return CGFloat(330.0);
+            }
         }
         return UITableViewAutomaticDimension;
     }
