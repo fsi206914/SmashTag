@@ -11,20 +11,16 @@ import UIKit
 class ImageCell: UITableViewCell {
 
     
-    var tweet: Tweet? {
-        didSet {
-            updateUI()
-        }
-    }
+    var tweet: Tweet?
     
     @IBOutlet weak var pictureImageView: UIImageView!
-    func updateUI(){
+    func updateUI(indexPath: NSIndexPath){
 
         //        let url: NSString = "https://pbs.twimg.com/media/ChlUhrlUgAEO31L.jpg"
         //        var urlStr : NSString = url.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
         //        let pictureURL = NSURL(string: urlStr as String)!
         
-        if let pictureURL = tweet?.media[0].url {
+        if let pictureURL = tweet?.media[indexPath.row].url {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
                 if let imageData = NSData(contentsOfURL: pictureURL){
                     dispatch_async(dispatch_get_main_queue(), {

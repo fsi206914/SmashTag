@@ -64,7 +64,7 @@ class TweetDetailController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let sectionMap = sectionIDNameMap[section]{
             switch sectionMap {
-            case "image": return 1;
+            case "image": return (tweet?.media.count)!;
             case "urls": return (tweet?.urls.count)!;
             case "hashtag": return (tweet?.hashtags.count)!;
             case "userMentions": return (tweet?.userMentions.count)!;
@@ -82,6 +82,7 @@ class TweetDetailController: UITableViewController {
                 cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.ImageID, forIndexPath: indexPath) as! ImageCell
                 if let imageCell = cell as? ImageCell{
                     imageCell.tweet = tweet;
+                    imageCell.updateUI(indexPath);
                 }
             }
             else{
@@ -115,5 +116,18 @@ class TweetDetailController: UITableViewController {
             }
         }
         return " ";
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let tdc = segue.destinationViewController as? TweetTableViewController {
+            if let identifier = segue.identifier{
+                switch identifier {
+                case "def":
+                    let cell = sender as! URLCell;
+                    tdc.searchText = cell.contentLabel.text;
+                default: print("error");
+                }
+            }
+        }
     }
 }

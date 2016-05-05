@@ -152,8 +152,8 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="11F-Rb-Xj2">
-                                            <rect key="frame" x="8" y="8" width="584" height="25.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                            <rect key="frame" x="8" y="8" width="584" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -174,6 +174,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="contentLabel" destination="11F-Rb-Xj2" id="xCD-Gm-6O3"/>
+                                    <segue destination="MxJ-wT-guP" kind="show" identifier="def" id="v6g-BD-z1w"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HashtagID" rowHeight="97" id="M9h-X6-aKi" customClass="HashtagCell" customModule="Smashtag" customModuleProvider="target">
@@ -204,7 +205,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eue-yQ-DEz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="284" y="245"/>
+            <point key="canvasLocation" x="306" y="255"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xdK-NY-9BI">
@@ -225,4 +226,7 @@
             <point key="canvasLocation" x="-1331" y="238"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="iNl-j4-Z5X"/>
+    </inferredMetricsTieBreakers>
 </document>

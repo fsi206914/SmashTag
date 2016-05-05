@@ -19,7 +19,7 @@ class URLCell: UITableViewCell {
             switch sectionMap {
             case "urls": contentLabel.text = (tweet?.urls[indexPath.row].keyword)!
             case "hashtag": contentLabel.text = (tweet?.hashtags[indexPath.row].keyword)!
-            case "userMentions": contentLabel.text = (tweet?.hashtags[indexPath.row].keyword)!
+            case "userMentions": contentLabel.text = (tweet?.userMentions[indexPath.row].keyword)!
             default: contentLabel.text = "error"
             }
         }
